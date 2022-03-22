@@ -2,4 +2,6 @@
     <string name="app_name">Mobile Computing</string>
     <string name="flat">Phone is flat</string>
     <string name="tilted">Phone is tilted</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
