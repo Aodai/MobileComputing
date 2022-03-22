@@ -33,11 +33,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             val sides = event.values[0]
             val upDown = event.values[1]
             if(upDown.toInt() == 0 && sides.toInt() == 0)
-                tvSensorValue.text = "Phone is flat"
-                //tvSensorValue.setText("Phone is flat")
+                tvSensorValue.text = getString(R.string.flat)
             else
-                tvSensorValue.text = "Phone is tilted!"
-                //tvSensorValue.setText("Phone is tilted!")
+                tvSensorValue.text = getString(R.string.tilted)
         }
     }
 
