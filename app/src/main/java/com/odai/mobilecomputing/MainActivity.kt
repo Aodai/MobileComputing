@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        if(savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().replace(R.id.frameLayout, HomeFragment())
+                .commit()
+        }
     }
 
     private fun replaceFragmenmt(fragment : Fragment, title : String) {
