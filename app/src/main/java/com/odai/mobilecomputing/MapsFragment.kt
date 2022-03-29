@@ -23,10 +23,12 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsFragment : Fragment(), OnMapReadyCallback {
+class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     private lateinit var gMap: GoogleMap
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -48,7 +50,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         gMap = googleMap
+        gMap.setInfoWindowAdapter(CustomInfoWindowAdapter(requireContext()))
         getCurrentLocation()
+
+        gMap.setOnInfoWindowClickListener(this)
     }
 
     @SuppressLint("MissingPermission")
@@ -67,7 +72,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                         } else {
                             Toast.makeText(requireContext(), "You are at ${location.latitude}, ${location.longitude}", Toast.LENGTH_LONG).show()
                             val loc = LatLng(location.latitude, location.longitude)
-                            gMap.addMarker(MarkerOptions().position(loc).title("You are here!"))
+                            gMap.addMarker(MarkerOptions().position(loc).title("You are here!").snippet("${loc.latitude}, ${loc.longitude}"))
                             gMap.moveCamera(CameraUpdateFactory.newLatLng(loc))
                         }
                     }
@@ -131,5 +136,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     companion object {
         private const val PERMISSION_REQUEST_ACCESS_LOCATION = 100
+    }
+
+    override fun onInfoWindowClick(marker: Marker) {
     }
 }
