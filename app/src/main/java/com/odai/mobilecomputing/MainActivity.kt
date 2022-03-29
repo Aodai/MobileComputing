@@ -1,6 +1,7 @@
 package com.odai.mobilecomputing
 
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId) {
                 R.id.nav_home -> replaceFragmenmt(HomeFragment(), it.title.toString())
-                R.id.nav_map -> replaceFragmenmt(MapFragment(), it.title.toString())
+                R.id.nav_map -> replaceFragmenmt(MapsFragment(), it.title.toString())
                 R.id.nav_camera -> replaceFragmenmt(CameraFragment(), it.title.toString())
             }
             true
