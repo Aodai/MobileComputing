@@ -18,6 +18,11 @@
         android:id="@+id/nav_camera"
         android:icon="@drawable/ic_baseline_photo_camera_24"
         android:title="Camera" />
+
+        <item
+            android:id="@+id/nav_quote"
+            android:icon="@drawable/ic_baseline_format_quote_24"
+            android:title="Quote of the day" />
     </group>
 
 </menu>

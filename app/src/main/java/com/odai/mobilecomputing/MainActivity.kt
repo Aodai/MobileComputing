@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> replaceFragmenmt(HomeFragment(), it.title.toString())
                 R.id.nav_map -> replaceFragmenmt(MapsFragment(), it.title.toString())
                 R.id.nav_camera -> replaceFragmenmt(CameraFragment(), it.title.toString())
+                R.id.nav_quote -> replaceFragmenmt(QuoteFragment(), it.title.toString())
             }
             true
         }
